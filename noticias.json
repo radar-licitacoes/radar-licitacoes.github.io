@@ -10,7 +10,44 @@
       "titulo": "TCM-BA trava homologação de pregão de R$ 8 milhões da saúde em Boa Vista do Tupim",
       "resumo": "Cautelar parcial impede o Fundo Municipal de Saúde de adjudicar e homologar o Lote 1 do Pregão Eletrônico nº 012/2026 (gestão de serviços de saúde) até nova decisão. As demais alegações da denúncia serão analisadas no mérito.",
       "fonte": "A Tarde",
-      "url": "https://atarde.com.br/politica/licitacao-de-r-8-milhoes-da-saude-e-suspensa-em-boa-vista-do-tupim-1408407"
+      "url": "https://atarde.com.br/politica/licitacao-de-r-8-milhoes-da-saude-e-suspensa-em-boa-vista-do-tupim-1408407",
+      "orgao_grupo": "TCM-BA"
+    },
+    {
+      "id": "tcems-anaurilandia-revogacao-2026-11-04",
+      "data": "2026-11-04",
+      "categoria": "Tribunal de Contas",
+      "orgao": "TCE-MS · Processo TC/3144/2026",
+      "orgao_grupo": "TCE-MS",
+      "uf": "MS",
+      "titulo": "Anaurilândia revoga pregão de R$ 1 milhão suspenso pelo TCE-MS para refazer quantitativos e preços",
+      "resumo": "Depois da suspensão pelo TCE-MS, a prefeitura revogou o Pregão Eletrônico nº 12/2026, de registro de preços de materiais de construção, estimado em R$ 1,04 milhão. A justificativa publicada no DOU foi a necessidade de revisar integralmente os quantitativos e a estimativa de preços. O aviso não detalha o que o tribunal havia questionado.",
+      "fonte": "A Crítica de Campo Grande",
+      "url": "https://acritica.net/cidades/anaurilandia-revoga-pregao-1-milhao-suspenso-tce-ms/"
+    },
+    {
+      "id": "pf-serrinha-caro-leitor-2026-11-04",
+      "data": "2026-11-04",
+      "categoria": "Operações e investigações",
+      "orgao": "PF · Operação Caro Leitor (com CGU)",
+      "orgao_grupo": "PF",
+      "uf": "BA",
+      "titulo": "PF e CGU investigam compra de livros didáticos de quase R$ 6 milhões em Serrinha (BA)",
+      "resumo": "A Operação Caro Leitor cumpriu mandados de busca na Bahia e no Ceará. A investigação apura suspeita de direcionamento e de sobrepreço, com livros contratados por valores bem acima dos praticados pela editora, além de vínculos entre empresas participantes. Os pagamentos foram feitos com recursos do Fundeb.",
+      "fonte": "Momento MT (nota da Polícia Federal)",
+      "url": "https://momentomt.com.br/pf-e-cgu-atuam-contra-fraude-em-licitacao/"
+    },
+    {
+      "id": "pf-cacapava-dioscuros-2026-11-04",
+      "data": "2026-11-04",
+      "categoria": "Operações e investigações",
+      "orgao": "PF · Delegacia de Santa Maria · Operação Dióscuros",
+      "orgao_grupo": "PF",
+      "uf": "RS",
+      "titulo": "PF investiga contratos de transporte de pacientes e escolar em Caçapava do Sul (RS)",
+      "resumo": "Foram cumpridos 10 mandados de busca, com bloqueio de ativos e de oito veículos. A suspeita envolve cobrança por distâncias maiores que as percorridas, uso de veículos de categoria inferior e viagens faturadas sem execução, com prejuízo estimado em R$ 1,4 milhão. Também se apura possível participação de agentes públicos municipais.",
+      "fonte": "Jornal do Garcia",
+      "url": "https://jornaldogarcia.com.br/policia-federal-deflagra-operacao-de-combate-a-fraudes-em-contratos-publicos-de-transporte-no-rs/"
     },
     {
       "id": "tcu-dnit-contorno-goiania-2026-11-04",
@@ -21,7 +58,8 @@
       "titulo": "TCU impede DNIT de seguir com licitação de R$ 1,1 bilhão do Contorno de Goiânia",
       "resumo": "No Acórdão 3.019/2026, o Plenário negou o pedido do DNIT para retomar a Concorrência Eletrônica 241/2026-12 e determinou que o certame não prossiga enquanto a obra fizer parte da concessão da Rota do Pequi. O tribunal também apontou falhas de planejamento.",
       "fonte": "Atlas Público (com base em publicação do TCU)",
-      "url": "https://atlaspublico.com.br/tcu/noticias/tcu-proibe-dnit-de-prosseguir-com-licitacao-de-rs-1-1-99347"
+      "url": "https://atlaspublico.com.br/tcu/noticias/tcu-proibe-dnit-de-prosseguir-com-licitacao-de-rs-1-1-99347",
+      "orgao_grupo": "TCU"
     },
     {
       "id": "tcesp-sorocaba-natal-2026-11-04",
@@ -32,7 +70,32 @@
       "titulo": "TCE-SP suspende licitação do Natal Iluminado de Sorocaba por exigência técnica restritiva",
       "resumo": "O Pregão Eletrônico nº 100/2026 exigia experiência anterior com árvore de Natal de no mínimo 30 metros e Papai Noel cenográfico. Para o conselheiro, os requisitos reproduzem o próprio objeto e podem restringir a competição. A prefeitura tem dez dias úteis para se justificar.",
       "fonte": "Jornal Cruzeiro do Sul",
-      "url": "https://www.jornalcruzeiro.com.br/sorocaba/noticias/2026/11/767370-tce-suspende-licitacao-do-natal-iluminado-de-sorocaba.html"
+      "url": "https://www.jornalcruzeiro.com.br/sorocaba/noticias/2026/11/767370-tce-suspende-licitacao-do-natal-iluminado-de-sorocaba.html",
+      "orgao_grupo": "TCE-SP"
+    },
+    {
+      "id": "tcemg-patrocinio-clubes-2026-11-03",
+      "data": "2026-11-03",
+      "categoria": "Tribunal de Contas",
+      "orgao": "TCE-MG · conselheiro em exercício Licurgo Mourão",
+      "orgao_grupo": "TCE-MG",
+      "uf": "MG",
+      "titulo": "TCE-MG suspende patrocínios de R$ 32 milhões de estatais mineiras a clubes de futebol",
+      "resumo": "A cautelar atinge os repasses previstos para 2027 a Atlético, Cruzeiro e América, envolvendo Cemig, Codemig, Codemge e Invest Minas. O relator questionou a finalidade empresarial dos patrocínios, a impessoalidade e a falta de estudos sobre o retorno institucional. O governo tem 48 horas para comprovar o cumprimento, sob pena de multa diária.",
+      "fonte": "Portal G37",
+      "url": "https://portalg37.com.br/politica/tce-mg-suspende-patrocinio-de-r-32-milhoes-do-governo-de-minas-para-atletico-cruzeiro-e-america-apos-pedido-de-cleitinho-azevedo/"
+    },
+    {
+      "id": "pf-aragarcas-corrente-reversa-2026-11-03",
+      "data": "2026-11-03",
+      "categoria": "Operações e investigações",
+      "orgao": "PF · Operação Corrente Reversa (com CGU)",
+      "orgao_grupo": "PF",
+      "uf": "GO",
+      "titulo": "PF investiga licitações de obras da Prefeitura de Aragarças (GO)",
+      "resumo": "A Operação Corrente Reversa cumpriu cinco mandados de busca em Goiás e Mato Grosso. A suspeita é de que empresas com representantes e endereços em comum tenham simulado concorrência em contratos de obras e engenharia pagos em parte com recursos federais. Há ainda indícios de sobrepreço e de uma empresa de fachada.",
+      "fonte": "Portal 6",
+      "url": "https://portal6.com.br/2026/11/03/pf-investiga-suspeita-de-fraudes-em-licitacoes-e-contratos-de-prefeitura-em-goias/"
     },
     {
       "id": "tcems-amambai-2026-11-03",
@@ -43,7 +106,8 @@
       "titulo": "TCE-MS suspende concorrência de R$ 1 milhão em Amambai",
       "resumo": "Cautelar suspende a Concorrência Eletrônica nº 021/2026, para supervisão técnica das obras do contorno viário, após auditores apontarem impropriedades. A prefeitura tem cinco dias úteis para apresentar justificativas.",
       "fonte": "JD1 Notícias",
-      "url": "https://www.jd1noticias.com/transparencia/2026/11/03/tce-ms-aponta-irregularidades-e-suspende-contratacao-de-r-1-milhao-em-amambai.html"
+      "url": "https://www.jd1noticias.com/transparencia/2026/11/03/tce-ms-aponta-irregularidades-e-suspende-contratacao-de-r-1-milhao-em-amambai.html",
+      "orgao_grupo": "TCE-MS"
     },
     {
       "id": "tcesc-ilhota-2026-11-03",
@@ -78,7 +142,8 @@
       "titulo": "TCM-BA suspende pregão de R$ 14 milhões em Prado após silêncio da prefeitura",
       "resumo": "O tribunal abriu o processo de ofício a partir do edital publicado no site da prefeitura e suspendeu o Pregão Eletrônico nº 019/2026. O gestor foi notificado em 2 de outubro para se explicar em cinco dias e não respondeu.",
       "fonte": "A Tarde",
-      "url": "https://atarde.com.br/politica/licitacao-de-r-14-milhoes-e-suspensa-definitivamente-em-prado-1407681"
+      "url": "https://atarde.com.br/politica/licitacao-de-r-14-milhoes-e-suspensa-definitivamente-em-prado-1407681",
+      "orgao_grupo": "TCM-BA"
     },
     {
       "id": "tcepr-onibus-curitiba-2026-10-28",
@@ -89,7 +154,8 @@
       "titulo": "TCE-PR volta a suspender licitação dos ônibus de Curitiba",
       "resumo": "Nova cautelar suspende toda a concorrência do transporte coletivo, que tinha entrega de propostas em 17/11 e leilão na B3 em 26/11. Dias antes, o TJ-PR havia derrubado a suspensão anterior. A nova decisão trata da estrutura da disputa, das condições de participação e das premissas econômico-financeiras.",
       "fonte": "Diário do Transporte",
-      "url": "https://diariodotransporte.com.br/2026/10/28/tce-suspende-novamente-licitacao-dos-onibus-de-curitiba-por-duvidas-sobre-regras-de-disputa-remuneracao-e-riscos-dos-contratos/"
+      "url": "https://diariodotransporte.com.br/2026/10/28/tce-suspende-novamente-licitacao-dos-onibus-de-curitiba-por-duvidas-sobre-regras-de-disputa-remuneracao-e-riscos-dos-contratos/",
+      "orgao_grupo": "TCE-PR"
     },
     {
       "id": "tcesc-consultoria-creditos-2026-10-26",
@@ -112,7 +178,8 @@
       "titulo": "TCE-RN confirma suspensão de contrato de R$ 9,3 milhões em Poço Branco",
       "resumo": "Por unanimidade, a 2ª Câmara manteve a cautelar sobre o contrato de serviços de engenharia oriundo da Concorrência Eletrônica nº 001/2025. A área técnica apontou objeto amplo, falta de detalhamento dos serviços e questionamentos sobre desclassificação de empresas.",
       "fonte": "TCE-RN (portal oficial)",
-      "url": "https://www.tce.rn.gov.br/Noticias/NoticiaDetalhada/8129"
+      "url": "https://www.tce.rn.gov.br/Noticias/NoticiaDetalhada/8129",
+      "orgao_grupo": "TCE-RN"
     },
     {
       "id": "tcesc-cincatarina-2026-10-22",
