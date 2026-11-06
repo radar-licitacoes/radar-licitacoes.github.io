@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Radar das Licitações · Licittapar</title>
+<style>
+:root{--n:#061B3A;--n2:#0B2647;--g:#C9A24D;--c:#F5F1E8;--m:#B9C2D0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--n);color:var(--c);font-family:Inter,system-ui,-apple-system,sans-serif;line-height:1.45}
+a{color:inherit}
+header{padding:28px 20px 18px;text-align:center;border-bottom:1px solid rgba(201,162,77,.25)}
+.logo{display:block;margin:0 auto 4px;width:190px;height:auto}
+.brand{font-family:Georgia,'Times New Roman',serif;font-weight:700;letter-spacing:8px;color:var(--g);font-size:20px}
+.brand small{display:block;font-family:Inter,system-ui,sans-serif;letter-spacing:3px;font-size:10px;color:var(--m);margin-top:2px;font-weight:500}
+h1{margin:18px 0 6px;font-size:30px;line-height:1.1;letter-spacing:-.5px}
+h1 em{font-style:normal;color:var(--g)}
+.sub{margin:0 auto;color:var(--m);font-size:16px}
+.sub b{color:var(--c);font-weight:600}
+.upd{margin-top:10px;font-size:12px;color:var(--g);letter-spacing:1px;text-transform:uppercase}
+.wrap{max-width:760px;margin:0 auto;padding:16px}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid rgba(201,162,77,.5);background:transparent;color:var(--c);border-radius:999px;padding:8px 14px;font-size:14px;cursor:pointer;font-family:inherit}
+.chip[aria-pressed=true]{background:var(--g);color:var(--n);font-weight:700;border-color:var(--g)}
+select{background:var(--n2);color:var(--c);border:1px solid rgba(201,162,77,.5);border-radius:10px;padding:8px 10px;font-size:14px;font-family:inherit}
+.row{display:flex;gap:10px;align-items:center;margin-bottom:6px;flex-wrap:wrap}
+.row{gap:14px;margin:4px 0 8px}
+.row label{font-size:13px;color:var(--m);display:flex;align-items:center;gap:8px}
+.card{background:var(--n2);border:1px solid rgba(255,255,255,.07);border-left:4px solid var(--g);border-radius:14px;padding:16px 16px 14px;margin:12px 0}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;color:var(--m);margin-bottom:8px}
+.tag{background:rgba(201,162,77,.15);color:var(--g);font-weight:700;border-radius:6px;padding:2px 8px;letter-spacing:.3px}
+.uf{background:#fff;color:var(--n);font-weight:800;border-radius:6px;padding:2px 7px}
+.card h2{font-size:18px;line-height:1.25;margin:0 0 8px}
+.card p{margin:0 0 12px;font-size:15px;color:#DCE2EA}
+.src{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--m)}
+.src a{color:var(--n);background:var(--g);text-decoration:none;font-weight:700;padding:7px 12px;border-radius:8px;white-space:nowrap}
+.empty{color:var(--m);text-align:center;padding:30px 0}
+.cta{margin:26px 0 8px;display:grid;gap:12px}
+.box{background:#fff;color:var(--n);border-radius:16px;padding:18px}
+.box h3{margin:0 0 4px;font-size:17px}
+.box p{margin:0 0 12px;font-size:14px;color:#33445e}
+.btn{display:inline-block;background:var(--n);color:#fff;text-decoration:none;font-weight:700;padding:10px 16px;border-radius:10px;font-size:14px}
+.btn.off{background:#c9ced8;color:#4a5568;pointer-events:none}
+footer{max-width:760px;margin:0 auto;padding:18px 16px 40px;font-size:12px;color:var(--m)}
+footer b{color:var(--c)}
+</style>
+</head>
+<body>
+<header>
+  <img class="logo" id="logo" src="logo.png" alt="Licittapar" onerror="this.remove();document.getElementById('brand').hidden=false">
+  <div class="brand" id="brand" hidden>LICITTAPAR<small>CONSULTORIA EM LICITAÇÕES</small></div>
+  <h1>Radar das <em>Licitações</em></h1>
+  <p class="sub">por <b>Franciele Della Méa</b></p>
+  <div class="upd" id="upd"></div>
+</header>
+
+<div class="wrap">
+  <div class="row">
+    <label>Órgão <select id="org"><option value="">Todos</option></select></label>
+    <label>Estado <select id="uf"><option value="">Todos</option></select></label>
+  </div>
+  <div id="list"><p class="empty">Carregando notícias…</p></div>
+
+  <div class="cta">
+    <div class="box">
+      <h3>📄 Minutas e checklists gratuitos</h3>
+      <p>Modelos prontos para a fase interna da contratação. Em breve.</p>
+      <a class="btn off" id="minutas" href="#">Em breve</a>
+    </div>
+    <div class="box">
+      <h3>💬 Grupo de troca sobre licitações</h3>
+      <p>Um grupo no WhatsApp para discutir as notícias e trocar experiências. Em breve.</p>
+      <a class="btn off" id="grupo" href="#">Em breve</a>
+    </div>
+    <div class="box">
+      <h3>✉️ Fale com a Licittapar</h3>
+      <p>Consultoria em licitações para órgãos públicos e empresas. Envie sua mensagem que eu respondo pessoalmente.</p>
+      <a class="btn" href="https://tally.so/r/NqDlK0" target="_blank" rel="noopener">Enviar mensagem</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p><b>Como funciona:</b> os resumos são escritos pela Licittapar a partir da fonte indicada em cada notícia. Para os detalhes e a decisão completa, abra o link da fonte. Medidas cautelares são provisórias e podem ser revistas.</p>
+  <p>Encontrou um erro ou quer sugerir uma notícia? Use o “Fale com a Licittapar”.</p>
+  <p>© Licittapar · Fran Della Méa · @licittapar</p>
+</footer>
+
+<script>
+let DATA=[],org="",uf="";
+const fmt=d=>{const [y,m,dd]=d.split("-");return dd+"/"+m+"/"+y};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const orgKey=n=>n.orgao_grupo||String(n.orgao).split(" · ")[0].trim();
+function render(){
+  const l=document.getElementById("list");
+  const items=DATA.filter(n=>(!org||orgKey(n)===org)&&(!uf||n.uf===uf));
+  if(!items.length){l.innerHTML='<p class="empty">Nenhuma notícia neste filtro ainda.</p>';return}
+  l.innerHTML=items.map(n=>`<article class="card">
+    <div class="meta"><span class="uf">${esc(n.uf)}</span><span class="tag">${esc(n.orgao)}</span><span>${fmt(n.data)}</span></div>
+    <h2>${esc(n.titulo)}</h2><p>${esc(n.resumo)}</p>
+    <div class="src"><span>Fonte: ${esc(n.fonte)}</span><a href="${esc(n.url)}" target="_blank" rel="noopener">Ler na fonte ↗</a></div>
+  </article>`).join("");
+}
+function fill(id,vals,cb){const s=document.getElementById(id);vals.forEach(v=>s.insertAdjacentHTML("beforeend",`<option>${esc(v)}</option>`));s.onchange=()=>{cb(s.value);render()}}
+fetch("noticias.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{
+  DATA=(j.noticias||[]).sort((a,b)=>b.data.localeCompare(a.data));
+  document.getElementById("upd").textContent="Atualizado em "+fmt(j.atualizado_em);
+  const coll=new Intl.Collator("pt-BR");
+  fill("org",[...new Set(DATA.map(orgKey))].sort(coll.compare),v=>org=v);
+  fill("uf",[...new Set(DATA.map(n=>n.uf))].sort(),v=>uf=v);
+  if(j.links){
+    if(j.links.minutas){const a=document.getElementById("minutas");a.href=j.links.minutas;a.textContent="Baixar grátis";a.className="btn";a.target="_blank";a.rel="noopener"}
+    if(j.links.grupo){const a=document.getElementById("grupo");a.href=j.links.grupo;a.textContent="Entrar no grupo";a.className="btn";a.target="_blank";a.rel="noopener"}
+  }
+  render();
+}).catch(()=>{document.getElementById("list").innerHTML='<p class="empty">Não foi possível carregar as notícias agora. Tente novamente em instantes.</p>'});
+</script>
+</body>
+</html>
