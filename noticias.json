@@ -2,6 +2,66 @@
   "atualizado_em": "2026-11-07",
   "noticias": [
     {
+      "id": "tceto-seagro-eventos-2026-11-06",
+      "data": "2026-11-06",
+      "categoria": "Tribunal de Contas",
+      "orgao": "TCE-TO · Quarta Relatoria",
+      "uf": "TO",
+      "titulo": "TCE-TO suspende pregão de R$ 36,2 milhões da Seagro para estruturas de eventos",
+      "resumo": "Cautelar do conselheiro Severiano Costandrade interrompe o Pregão Eletrônico nº 02/2026. A área técnica apontou ausência de regras do registro de preços, quantitativos sem comprovação e exigências de qualificação técnica sem justificativa específica.",
+      "fonte": "Gazeta do Cerrado",
+      "url": "https://gazetadocerrado.com.br/tocantins/tce-determina-suspensao-de-licitacao-de-r-362-milhoes-da-seagro-por-suspeitas-de-irregularidades/",
+      "orgao_grupo": "TCE-TO"
+    },
+    {
+      "id": "tceto-porto-nacional-pneus-2026-11-06",
+      "data": "2026-11-06",
+      "categoria": "Tribunal de Contas",
+      "orgao": "TCE-TO · Quarta Relatoria",
+      "uf": "TO",
+      "titulo": "TCE-TO suspende compra de pneus de R$ 2,3 milhões em Porto Nacional",
+      "resumo": "A fiscalização listou 14 possíveis falhas no edital, como especificações contraditórias entre pneus sem câmara e câmaras de ar e quantitativos sem comprovação. Para retomar, o município terá de corrigir e republicar o edital.",
+      "fonte": "O Melhor da Amazônia",
+      "url": "https://www.omelhordaamazonia.com.br/destaque/licitacao-de-pneus-suspensa-tce-porto-nacional/",
+      "orgao_grupo": "TCE-TO"
+    },
+    {
+      "id": "tcesp-cdhu-bairro-paulista-2026-11-06",
+      "data": "2026-11-06",
+      "categoria": "Tribunal de Contas",
+      "orgao": "TCE-SP · Conselheiro Renato Martins Costa",
+      "uf": "SP",
+      "titulo": "TCE-SP suspende licitação de R$ 305,6 milhões da CDHU para obras do Bairro Paulista",
+      "resumo": "Após representações de empresas, a decisão preliminar questiona o uso de registro de preços para obras de grande valor e as exigências de qualificação técnica. A CDHU diz que cumprirá a determinação e tem dez dias úteis para se manifestar.",
+      "fonte": "Marília Notícia",
+      "url": "https://marilianoticia.com.br/mariliaeregiao/tce-suspende-licitacao-de-r-305-milhoes-da-cdhu-com-obras-na-regiao-de-marilia/",
+      "orgao_grupo": "TCE-SP"
+    },
+    {
+      "id": "tcesp-marilia-plataforma-2026-11-06",
+      "data": "2026-11-06",
+      "categoria": "Tribunal de Contas",
+      "orgao": "TCE-SP · Conselheiro Dimas Ramalho",
+      "uf": "SP",
+      "titulo": "TCE-SP suspende pregão de R$ 1,9 milhão da Prefeitura de Marília",
+      "resumo": "O Pregão Eletrônico nº 112/2026 (plataforma de gestão de processos) foi paralisado por cautelar. Entre os pontos levantados estão a proibição de subcontratação, o preço global único e a dispensa do estudo técnico preliminar.",
+      "fonte": "Marília Notícia",
+      "url": "https://marilianoticia.com.br/mariliaeregiao/tce-questiona-edital-e-suspende-licitacao-de-r-18-milhao-em-marilia/",
+      "orgao_grupo": "TCE-SP"
+    },
+    {
+      "id": "justica-to-palmas-upas-2026-11-06",
+      "data": "2026-11-06",
+      "categoria": "Justiça / Mandado de segurança",
+      "orgao": "Justiça de Tocantins · ação do MPTO",
+      "uf": "TO",
+      "titulo": "Justiça suspende seleção para gestão das UPAs de Palmas após ação do MP",
+      "resumo": "Liminar paralisa o chamamento, cuja abertura de propostas estava marcada para 6 de novembro. O MPTO questiona a exigência de cobrir 100% da folha sem definir quantos servidores seriam cedidos. A prefeitura informou que vai recorrer.",
+      "fonte": "Jornal Primeira Página",
+      "url": "https://jornalprimeirapaginato.com/justica-suspende-nova-selecao-para-gestao-das-upas-de-palmas-apos-mp-apontar-irregularidades-no-edital/",
+      "orgao_grupo": "TJ-TO"
+    },
+    {
       "id": "tcmba-boa-vista-tupim-2026-11-05",
       "data": "2026-11-05",
       "categoria": "Tribunal de Contas",
@@ -12,6 +72,18 @@
       "fonte": "A Tarde",
       "url": "https://atarde.com.br/politica/licitacao-de-r-8-milhoes-da-saude-e-suspensa-em-boa-vista-do-tupim-1408407",
       "orgao_grupo": "TCM-BA"
+    },
+    {
+      "id": "pf-cgu-serrinha-caro-leitor-2026-11-04",
+      "data": "2026-11-04",
+      "categoria": "Operações e investigações",
+      "orgao": "PF · CGU",
+      "uf": "BA",
+      "titulo": "PF e CGU investigam suspeita de fraude na compra de livros didáticos em Serrinha (BA)",
+      "resumo": "A Operação Caro Leitor cumpriu 13 mandados de busca na Bahia e no Ceará. Apura-se suspeita de direcionamento da licitação, preços acima dos divulgados pela editora e desvio de recursos do Fundeb; os alvos são investigados e não há condenação.",
+      "fonte": "Farol da Bahia",
+      "url": "https://www.faroldabahia.com.br/noticia/pf-cumpre-mandados-em-operacao-que-investiga-licitacao-fraudada-e-desvio-de-dinheiro-em-compra-de-livros-na-bahia",
+      "orgao_grupo": "PF"
     },
     {
       "id": "tcems-anaurilandia-revogacao-2026-11-04",
