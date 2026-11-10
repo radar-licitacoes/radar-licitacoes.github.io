@@ -1,6 +1,30 @@
 {
-  "atualizado_em": "2026-11-09",
+  "atualizado_em": "2026-11-10",
   "noticias": [
+    {
+      "id": "tcema-chapadinha-patio-2026-11-09",
+      "data": "2026-11-09",
+      "categoria": "Tribunal de Contas",
+      "orgao": "TCE-MA · Plenário",
+      "uf": "MA",
+      "titulo": "TCE-MA ratifica suspensão de concorrência para obra do pátio da prefeitura de Chapadinha",
+      "resumo": "O Plenário confirmou por unanimidade a cautelar que paralisa a Concorrência Eletrônica nº 022/2026, estimada em R$ 307,5 mil. A medida decorre de denúncia que aponta possíveis irregularidades na condução do certame e é preventiva, enquanto os fatos são examinados.",
+      "fonte": "Blog da Mucambo",
+      "url": "https://www.blogdamucambo.com/2026/11/alerta-no-tce-ma-tribunal-suspende.html",
+      "orgao_grupo": "TCE-MA"
+    },
+    {
+      "id": "tcerj-detro-monitoramento-2026-11-09",
+      "data": "2026-11-09",
+      "categoria": "Tribunal de Contas",
+      "orgao": "TCE-RJ · Detro-RJ",
+      "uf": "RJ",
+      "titulo": "Detro-RJ anula pregão de R$ 31,7 milhões para monitorar ônibus intermunicipais após decisão do TCE-RJ",
+      "resumo": "O Pregão Eletrônico nº 001/2026, que previa sistema de rastreamento com 11 mil licenças, foi anulado por determinação do tribunal de contas. O certame já havia sido suspenso em maio por falhas no planejamento da contratação.",
+      "fonte": "Ônibus & Transporte",
+      "url": "https://onibusetransporte.com/2026/11/09/detro-rj-anula-licitacao-monitoramento-onibus-intermunicipais/",
+      "orgao_grupo": "TCE-RJ"
+    },
     {
       "id": "tcmba-itaberaba-pregao17-2026-11-06",
       "data": "2026-11-06",
@@ -84,6 +108,18 @@
       "fonte": "A Tarde",
       "url": "https://atarde.com.br/politica/licitacao-de-r-8-milhoes-da-saude-e-suspensa-em-boa-vista-do-tupim-1408407",
       "orgao_grupo": "TCM-BA"
+    },
+    {
+      "id": "pf-serrinha-livros-2026-11-04",
+      "data": "2026-11-04",
+      "categoria": "Operações e investigações",
+      "orgao": "PF · CGU",
+      "uf": "BA",
+      "titulo": "PF investiga suspeita de fraude na compra de livros didáticos em Serrinha (BA)",
+      "resumo": "A Operação Caro Leitor cumpriu 13 mandados de busca na Bahia e no Ceará. A investigação apura suspeita de direcionamento de licitação, preços acima dos divulgados pela editora e desvio de recursos do Fundeb. Os alvos são suspeitos e não há condenação.",
+      "fonte": "Farol da Bahia",
+      "url": "https://www.faroldabahia.com.br/noticia/pf-cumpre-mandados-em-operacao-que-investiga-licitacao-fraudada-e-desvio-de-dinheiro-em-compra-de-livros-na-bahia",
+      "orgao_grupo": "PF"
     },
     {
       "id": "tcems-anaurilandia-revogacao-2026-11-04",
