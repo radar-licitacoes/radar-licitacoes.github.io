@@ -94,10 +94,10 @@ FONTE_UF = {
 }
 
 TEMA = re.compile(r"licita|preg[aã]o|edital|concorr[eê]ncia|dispensa|inexigibil|"
-                  r"contrata[cç][aã]o p[uú]blica|contrato|ata de registro|"
+                  r"contrata[cç][aã]o|contrato|ata de registro|"
                   r"credenciamento|chamamento|14\.133|compras p[uú]blicas|superfaturamento|"
-                  r"sobrepre[cç]o|fraude", re.I)
-FORA = re.compile(r"concurso p[uú]blico|vestibular|enem\b|processo seletivo|"
+                  r"sobrepre[cç]o", re.I)
+FORA = re.compile(r"\\bconcurso|financiamento|empr[eé]stimo consignado|vestibular|enem\b|processo seletivo|"
                   r"futebol|campeonato|novela|bbb\b|hor[oó]scopo|vaga de emprego|"
                   r"aprovados no concurso|leil[aã]o de im[oó]ve(l|is) (residenciais|particulares)", re.I)
 
@@ -145,8 +145,9 @@ def link_original(link):
     try:
         from googlenewsdecoder import gnewsdecoder
         r = gnewsdecoder(link, interval=1)
-        if r.get("status") and r.get("decoded_url"):
+        if (r.get("success") or r.get("status")) and r.get("decoded_url"):
             return r["decoded_url"]
+        print(f"  ! não decodificou link: {r.get('message')}")
     except Exception as e:  # noqa: BLE001
         print(f"  ! não decodificou link: {e}")
     try:
