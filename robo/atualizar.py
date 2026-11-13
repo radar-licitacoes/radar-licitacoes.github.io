@@ -76,6 +76,14 @@ CAPITAIS = {
     "porto velho": "RO", "boa vista": "RR", "florianopolis": "SC",
     "aracaju": "SE", "palmas": "TO",
 }
+GENTILICOS = {
+    "gaucho": "RS", "catarinense": "SC", "paranaense": "PR", "paulista": "SP", "mineiro": "MG",
+    "baiano": "BA", "fluminense": "RJ", "carioca": "RJ", "goiano": "GO", "capixaba": "ES",
+    "potiguar": "RN", "pernambucano": "PE", "cearense": "CE", "maranhense": "MA",
+    "paraense": "PA", "amazonense": "AM", "tocantinense": "TO", "sul-mato-grossense": "MS",
+    "mato-grossense": "MT", "sergipano": "SE", "alagoano": "AL", "paraibano": "PB",
+    "piauiense": "PI", "rondoniense": "RO", "roraimense": "RR", "acreano": "AC", "amapaense": "AP",
+}
 # veículos regionais frequentes → estado (ajuda quando a notícia não diz o estado)
 FONTE_UF = {
     "nd+": "SC", "ndmais": "SC", "nsc total": "SC", "sctodod": "SC", "sctd": "SC",
@@ -97,7 +105,7 @@ TEMA = re.compile(r"licita|preg[aã]o|edital|concorr[eê]ncia|dispensa|inexigibi
                   r"contrata[cç][aã]o|contrato|ata de registro|"
                   r"credenciamento|chamamento|14\.133|compras p[uú]blicas|superfaturamento|"
                   r"sobrepre[cç]o", re.I)
-FORA = re.compile(r"\\bconcurso|financiamento|empr[eé]stimo consignado|vestibular|enem\b|processo seletivo|"
+FORA = re.compile(r"\bconcurso|financiamento|empr[eé]stimo consignado|vestibular|enem\b|processo seletivo|"
                   r"futebol|campeonato|novela|bbb\b|hor[oó]scopo|vaga de emprego|"
                   r"aprovados no concurso|leil[aã]o de im[oó]ve(l|is) (residenciais|particulares)", re.I)
 
@@ -165,7 +173,11 @@ def abre_materia(url):
         r = requests.get(url, headers=UA, timeout=20)
         if r.status_code >= 400:
             return "", ""
-        t = r.text
+        try:
+            t = r.content.decode("utf-8")
+        except UnicodeDecodeError:
+            t = r.content.decode(r.apparent_encoding or "latin-1", errors="replace")
+        t = re.sub(r"<(script|style|noscript)[^>]*>.*?</\1>", " ", t, flags=re.I | re.S)
     except Exception:  # noqa: BLE001
         return "", ""
     desc = ""
@@ -177,7 +189,7 @@ def abre_materia(url):
             desc = limpa(m.group(1))
             break
     paras = [limpa(p) for p in re.findall(r"<p[^>]*>(.*?)</p>", t, re.I | re.S)]
-    corpo = " ".join(p for p in paras if len(p) > 80)[:6000]
+    corpo = " ".join(p for p in paras if len(p) > 80 and "{" not in p and "©" not in p)[:6000]
     return desc, corpo
 
 
@@ -190,6 +202,9 @@ def acha_uf(texto, fonte=""):
     for nome in sorted(UFS, key=len, reverse=True):
         if re.search(r"\b(do|da|de|no|na|em)\s+" + nome + r"\b", t):
             return UFS[nome]
+    for gent, uf in GENTILICOS.items():
+        if re.search(r"\b" + gent + r"(s|a|as)?\b", t):
+            return uf
     for cap, uf in CAPITAIS.items():
         if re.search(r"\b" + cap + r"\b", t):
             return uf
@@ -382,9 +397,15 @@ def main():
             if not cl:
                 continue
             cat, grupo, uf = cl
-            resumo = corta(desc, 420) if desc and not parecido(desc, c["titulo"]) else ""
+            if uf in ("", "BR") and cat != "Normas e orientações":
+                uf = acha_uf(" ".join([c["titulo"], desc, corpo[:1500]]), c["fonte"]) or uf
+            resumo = ""
+            if desc and not parecido(desc, c["titulo"]) and len(desc) > 60 and desc.rstrip()[-1] in ".!?…»\"":
+                resumo = corta(desc, 420)
             if not resumo and corpo:
                 resumo = corta(corpo, 420)
+            if not resumo and desc and len(desc) > 60:
+                resumo = corta(desc, 420)
             if not resumo:
                 resumo = "Abra a fonte para ler os detalhes da decisão."
             item = {"titulo": c["titulo"], "resumo": resumo, "categoria": cat,
