@@ -265,8 +265,21 @@ def classifica(texto, fonte=""):
     return None
 
 
+COMUNS = set("""suspende suspensao suspenso suspensa licitacao licitacoes pregao contra fraude fraudes operacao
+prefeitura prefeituras contrato contratos tribunal contas justica mandados cumpre milhoes milhao para apos sobre
+determina investiga investigacao suspeita suspeitos empresa empresas municipio municipal estado publica publico
+eletronico concorrencia edital contratacao servicos obras compra aquisicao""".split())
+
+
 def norm_titulo(s):
     return set(w for w in re.findall(r"[a-z0-9]{4,}", sem_acento(s)))
+
+
+def mesmo_caso(a, b):
+    """Mesmo órgão + palavras específicas em comum (cidade, objeto) = provavelmente o mesmo caso."""
+    a, b = norm_titulo(a) - COMUNS, norm_titulo(b) - COMUNS
+    comum = a & b
+    return len(comum) >= 2 and len(comum) / max(1, len(a | b)) >= 0.25
 
 
 def parecido(a, b):
@@ -290,7 +303,11 @@ def corta(s, n):
 
 # ---------------------------------------------------------------- IA opcional (Gemini, gratuita)
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
-GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-flash-latest").strip()
+# modelos tentados em ordem; se um esgotar a cota gratuita ou falhar, passa para o próximo
+GEMINI_MODELOS = [m.strip() for m in os.environ.get(
+    "GEMINI_MODEL", "gemini-2.5-flash,gemini-flash-lite-latest,gemini-2.5-flash-lite,gemini-flash-latest"
+).split(",") if m.strip()]
+GEMINI_MODEL = GEMINI_MODELOS[0]
 
 PROMPT = """Você alimenta o "Radar das Licitações", página pública de notícias sobre licitações e contratações públicas no Brasil.
 Analise a notícia abaixo e responda SOMENTE com um JSON:
@@ -310,35 +327,39 @@ TÍTULO: {titulo}
 TEXTO: {texto}"""
 
 
-GEMINI_FALHAS = 0
+GEMINI_FALHAS = {}
 GEMINI_ULTIMA = 0.0
 
 
 def gemini(fonte, titulo, texto):
+    global GEMINI_ULTIMA
     if not GEMINI_KEY:
         return None
-    url = (f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent")
     body = {"contents": [{"parts": [{"text": PROMPT.format(fonte=fonte, titulo=titulo, texto=texto[:5000])}]}],
             "generationConfig": {"temperature": 0.2, "responseMimeType": "application/json"}}
-    global GEMINI_FALHAS, GEMINI_ULTIMA
-    if GEMINI_FALHAS >= 3:
-        return None  # IA indisponível hoje: segue sem ela
-    espera = 6 - (time.time() - GEMINI_ULTIMA)  # no máx. ~10 pedidos/min (limite gratuito)
-    if espera > 0:
-        time.sleep(espera)
-    GEMINI_ULTIMA = time.time()
-    try:
-        r = requests.post(url, json=body, headers={"x-goog-api-key": GEMINI_KEY}, timeout=(10, 45))
-        if r.status_code != 200:
-            GEMINI_FALHAS += 1
-            print(f"  ! Gemini respondeu {r.status_code}: {r.text[:200]}")
-            return None
-        txt = r.json()["candidates"][0]["content"]["parts"][0]["text"]
-        return json.loads(re.sub(r"^```(json)?|```$", "", txt.strip()))
-    except Exception as e:  # noqa: BLE001
-        GEMINI_FALHAS += 1
-        print(f"  ! Gemini falhou: {e}")
-        return None
+    for modelo in GEMINI_MODELOS:
+        if GEMINI_FALHAS.get(modelo, 0) >= 2:
+            continue  # este modelo está fora hoje
+        espera = 6 - (time.time() - GEMINI_ULTIMA)  # no máx. ~10 pedidos/min (limite gratuito)
+        if espera > 0:
+            time.sleep(espera)
+        GEMINI_ULTIMA = time.time()
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent"
+        try:
+            r = requests.post(url, json=body, headers={"x-goog-api-key": GEMINI_KEY}, timeout=(10, 45))
+            if r.status_code != 200:
+                GEMINI_FALHAS[modelo] = GEMINI_FALHAS.get(modelo, 0) + (2 if r.status_code in (404, 429) else 1)
+                msg = re.sub(r"\s+", " ", r.text)[:160]
+                print(f"  ! Gemini {modelo} respondeu {r.status_code}: {msg}")
+                continue
+            txt = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+            res = json.loads(re.sub(r"^```(json)?|```$", "", txt.strip()))
+            GEMINI_FALHAS[modelo] = 0
+            return res
+        except Exception as e:  # noqa: BLE001
+            GEMINI_FALHAS[modelo] = GEMINI_FALHAS.get(modelo, 0) + 1
+            print(f"  ! Gemini {modelo} falhou: {e}")
+    return None
 
 
 # ---------------------------------------------------------------- principal
@@ -348,8 +369,9 @@ def main():
     antigas = dados.get("noticias", [])
     urls = {n.get("url") for n in antigas}
     titulos = [n.get("titulo", "") for n in antigas]
+    grupos = [(n.get("orgao_grupo"), n.get("titulo", "")) for n in antigas]
 
-    print(f"Radar · {HOJE} · IA: {'Gemini ' + GEMINI_MODEL if GEMINI_KEY else 'desligada (resumo = abertura da fonte)'}")
+    print(f"Radar · {HOJE} · IA: {'Gemini ' + '/'.join(GEMINI_MODELOS) if GEMINI_KEY else 'desligada (resumo = abertura da fonte)'}")
     candidatos = []
     for q in BUSCAS:
         r = google_news(q)
@@ -432,6 +454,10 @@ def main():
                     "orgao": grupo, "orgao_grupo": grupo, "uf": uf}
         if url in urls or any(parecido(item["titulo"], t) for t in titulos):
             continue
+        if any(g == item["orgao_grupo"] and (mesmo_caso(item["titulo"], t) or mesmo_caso(c["titulo"], t))
+               for g, t in grupos):
+            print(f"  · repetida: {item['titulo']}")
+            continue
         item.update({
             "id": f"{slug(item['orgao_grupo'] + ' ' + item['titulo'])}-{c['data']}",
             "data": c["data"].isoformat(),
@@ -442,6 +468,7 @@ def main():
         novas.append(item)
         urls.add(url)
         titulos.append(item["titulo"])
+        grupos.append((item["orgao_grupo"], item["titulo"]))
         print(f"  + [{item['orgao_grupo']}/{item['uf']}] {item['titulo']}")
 
     ordem = ["id", "data", "categoria", "orgao", "orgao_grupo", "uf", "titulo", "resumo", "fonte", "url", "auto"]
