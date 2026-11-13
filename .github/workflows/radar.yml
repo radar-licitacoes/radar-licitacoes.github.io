@@ -1,0 +1,49 @@
+name: Atualizar Radar das Licitações
+
+on:
+  schedule:
+    - cron: "43 9 * * *"   # todo dia às 6h43 (horário de Brasília)
+  workflow_dispatch:        # botão "Run workflow" para rodar na hora
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: radar
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependências
+        run: pip install requests googlenewsdecoder
+
+      - name: Buscar notícias e atualizar noticias.json
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python robo/atualizar.py
+
+      - name: Publicar no site
+        run: |
+          git config user.name "Licittapar"
+          git config user.email "radar-licitacoes@users.noreply.github.com"
+          git add noticias.json
+          if git diff --cached --quiet; then
+            echo "Nada novo para publicar."
+            exit 0
+          fi
+          git commit -m "Radar: atualização automática $(TZ=America/Sao_Paulo date +%F)"
+          git pull --rebase origin main
+          git push origin main
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
+        env:
+          GH_TOKEN: ${{ github.token }}
