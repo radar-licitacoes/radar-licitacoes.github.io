@@ -188,8 +188,11 @@ def abre_materia(url):
         if m:
             desc = limpa(m.group(1))
             break
-    paras = [limpa(p) for p in re.findall(r"<p[^>]*>(.*?)</p>", t, re.I | re.S)]
-    corpo = " ".join(p for p in paras if len(p) > 80 and "{" not in p and "©" not in p)[:6000]
+    m = re.search(r"<article[^>]*>(.*?)</article>", t, re.I | re.S)
+    regiao = m.group(1) if m and len(m.group(1)) > 1500 else t
+    paras = [limpa(p) for p in re.findall(r"<p(?:\s[^>]*)?>(.*?)</p>", regiao, re.I | re.S)]
+    corpo = " ".join(p for p in paras if 80 < len(p) < 2500 and "{" not in p and "©" not in p
+                     and re.search(r"[a-zà-ú]{3,}[.,;:] ", p) and not re.search(r"cookies?|assine|newsletter", p, re.I))[:6000]
     return desc, corpo
 
 
@@ -397,8 +400,8 @@ def main():
             if not cl:
                 continue
             cat, grupo, uf = cl
-            if uf in ("", "BR") and cat != "Normas e orientações":
-                uf = acha_uf(" ".join([c["titulo"], desc, corpo[:1500]]), c["fonte"]) or uf
+            if uf in ("", "BR") and cat == "Operações e investigações":
+                uf = acha_uf(" ".join([c["titulo"], desc]), c["fonte"]) or uf
             resumo = ""
             if desc and not parecido(desc, c["titulo"]) and len(desc) > 60 and desc.rstrip()[-1] in ".!?…»\"":
                 resumo = corta(desc, 420)
