@@ -22,6 +22,9 @@ from email.utils import parsedate_to_datetime
 from urllib.parse import quote_plus, urlparse
 
 import requests
+from concurrent.futures import ThreadPoolExecutor
+
+_POOL = ThreadPoolExecutor(max_workers=2)
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ARQ = os.path.join(BASE, "noticias.json")
@@ -152,14 +155,14 @@ def link_original(link):
         return link
     try:
         from googlenewsdecoder import gnewsdecoder
-        r = gnewsdecoder(link, interval=1)
+        r = _POOL.submit(gnewsdecoder, link, 1).result(timeout=25)
         if (r.get("success") or r.get("status")) and r.get("decoded_url"):
             return r["decoded_url"]
         print(f"  ! não decodificou link: {r.get('message')}")
     except Exception as e:  # noqa: BLE001
         print(f"  ! não decodificou link: {e}")
     try:
-        r = requests.get(link, headers=UA, timeout=20, allow_redirects=True)
+        r = requests.get(link, headers=UA, timeout=(8, 15), allow_redirects=True)
         if "news.google.com" not in r.url:
             return r.url
     except Exception:  # noqa: BLE001
@@ -170,7 +173,7 @@ def link_original(link):
 def abre_materia(url):
     """Lê o texto de abertura publicado pela própria fonte."""
     try:
-        r = requests.get(url, headers=UA, timeout=20)
+        r = requests.get(url, headers=UA, timeout=(8, 15))
         if r.status_code >= 400:
             return "", ""
         try:
@@ -307,25 +310,35 @@ TÍTULO: {titulo}
 TEXTO: {texto}"""
 
 
+GEMINI_FALHAS = 0
+GEMINI_ULTIMA = 0.0
+
+
 def gemini(fonte, titulo, texto):
     if not GEMINI_KEY:
         return None
     url = (f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent")
     body = {"contents": [{"parts": [{"text": PROMPT.format(fonte=fonte, titulo=titulo, texto=texto[:5000])}]}],
             "generationConfig": {"temperature": 0.2, "responseMimeType": "application/json"}}
-    for tentativa in range(3):
-        try:
-            r = requests.post(url, json=body, headers={"x-goog-api-key": GEMINI_KEY}, timeout=60)
-            if r.status_code == 429:
-                time.sleep(20)
-                continue
-            r.raise_for_status()
-            txt = r.json()["candidates"][0]["content"]["parts"][0]["text"]
-            return json.loads(re.sub(r"^```(json)?|```$", "", txt.strip()))
-        except Exception as e:  # noqa: BLE001
-            print(f"  ! Gemini falhou ({tentativa + 1}/3): {e}")
-            time.sleep(5)
-    return None
+    global GEMINI_FALHAS, GEMINI_ULTIMA
+    if GEMINI_FALHAS >= 3:
+        return None  # IA indisponível hoje: segue sem ela
+    espera = 6 - (time.time() - GEMINI_ULTIMA)  # no máx. ~10 pedidos/min (limite gratuito)
+    if espera > 0:
+        time.sleep(espera)
+    GEMINI_ULTIMA = time.time()
+    try:
+        r = requests.post(url, json=body, headers={"x-goog-api-key": GEMINI_KEY}, timeout=(10, 45))
+        if r.status_code != 200:
+            GEMINI_FALHAS += 1
+            print(f"  ! Gemini respondeu {r.status_code}: {r.text[:200]}")
+            return None
+        txt = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+        return json.loads(re.sub(r"^```(json)?|```$", "", txt.strip()))
+    except Exception as e:  # noqa: BLE001
+        GEMINI_FALHAS += 1
+        print(f"  ! Gemini falhou: {e}")
+        return None
 
 
 # ---------------------------------------------------------------- principal
@@ -361,8 +374,12 @@ def main():
     print(f"Candidatas após filtro: {len(fila)}")
 
     novas = []
-    for c in fila:
+    inicio = time.time()
+    for c in fila[:30]:
         if len(novas) >= MAX_NOVAS:
+            break
+        if time.time() - inicio > 600:  # no máx. 10 minutos analisando matérias
+            print("  ! tempo esgotado, publicando o que já foi analisado")
             break
         url = link_original(c["link"])
         if url in urls:

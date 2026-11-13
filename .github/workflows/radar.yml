@@ -16,7 +16,7 @@ concurrency:
 jobs:
   atualizar:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
 
@@ -30,7 +30,7 @@ jobs:
       - name: Buscar notícias e atualizar noticias.json
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python robo/atualizar.py
+        run: python -u robo/atualizar.py
 
       - name: Publicar no site
         run: |
