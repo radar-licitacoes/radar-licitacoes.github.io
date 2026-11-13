@@ -275,8 +275,26 @@ def norm_titulo(s):
     return set(w for w in re.findall(r"[a-z0-9]{4,}", sem_acento(s)))
 
 
+NAO_NOME = set("""justica tribunal policia federal ministerio publico operacao prefeitura contas estado gaeco
+camara governo secretaria municipio caixa civil regional superior nacional uniao brasil sul norte
+grande mato gerais santa catarina paulo janeiro espirito santo""".split()) | {w for n in UFS for w in n.split()}
+
+
+def nomes_proprios(s):
+    """Cidades/nomes próprios citados no título (palavras com maiúscula, fora a 1ª do título)."""
+    out = set()
+    for m in re.finditer(r"\b[A-ZÀ-Ý][a-zà-ÿ]{3,}(?:-[A-ZÀ-Ý][a-zà-ÿ]+)?", s):
+        w = sem_acento(m.group(0))
+        if m.start() == 0 or w in NAO_NOME:
+            continue
+        out.add(w)
+    return out
+
+
 def mesmo_caso(a, b):
-    """Mesmo órgão + palavras específicas em comum (cidade, objeto) = provavelmente o mesmo caso."""
+    """Mesmo órgão + mesma cidade/nome próprio, ou várias palavras específicas em comum = mesmo caso."""
+    if nomes_proprios(a) & nomes_proprios(b):
+        return True
     a, b = norm_titulo(a) - COMUNS, norm_titulo(b) - COMUNS
     comum = a & b
     return len(comum) >= 2 and len(comum) / max(1, len(a | b)) >= 0.25
@@ -305,7 +323,7 @@ def corta(s, n):
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 # modelos tentados em ordem; se um esgotar a cota gratuita ou falhar, passa para o próximo
 GEMINI_MODELOS = [m.strip() for m in os.environ.get(
-    "GEMINI_MODEL", "gemini-2.5-flash,gemini-flash-lite-latest,gemini-2.5-flash-lite,gemini-flash-latest"
+    "GEMINI_MODEL", "gemini-flash-lite-latest,gemini-2.5-flash-lite,gemini-flash-latest"
 ).split(",") if m.strip()]
 GEMINI_MODEL = GEMINI_MODELOS[0]
 
@@ -432,6 +450,10 @@ def main():
                 item["categoria"] = cl[0]
             if not item["orgao_grupo"]:
                 continue
+            m = re.match(r"(TCE|TCM|TJ|MP|Polícia Civil)-([A-Z]{2})$", item["orgao_grupo"])
+            if m and item["uf"] in SIGLAS and m.group(2) != item["uf"]:
+                item["orgao_grupo"] = f"{m.group(1)}-{item['uf']}"  # sigla coerente com o estado
+                item["orgao"] = re.sub(r"^(TCE|TCM|TJ|MP)-[A-Z]{2}", item["orgao_grupo"], item["orgao"])
             if not item["orgao"]:
                 item["orgao"] = item["orgao_grupo"]
         else:
