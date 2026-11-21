@@ -1,6 +1,58 @@
 {
-  "atualizado_em": "2026-11-20",
+  "atualizado_em": "2026-11-21",
   "noticias": [
+    {
+      "id": "tcm-ba-tcm-ba-suspende-contratos-de-advocacia-e-barra-repass-2026-11-21",
+      "data": "2026-11-21",
+      "categoria": "Tribunal de Contas",
+      "orgao": "TCM-BA · Relatoria",
+      "orgao_grupo": "TCM-BA",
+      "uf": "BA",
+      "titulo": "TCM-BA suspende contratos de advocacia e barra repasses do Fundeb em Ibotirama",
+      "resumo": "O Tribunal de Contas dos Municípios da Bahia determinou a suspensão cautelar de pagamentos de contratos de advocacia firmados pela Prefeitura de Ibotirama. A medida barrou repasses e destaques de honorários relacionados a ações do Fundeb e Fundef. O relator apontou divergências nos valores e risco de movimentações financeiras desproporcionais.",
+      "fonte": "O Eco Jornal Online",
+      "url": "https://oecojornal.com.br/tcm-suspende-contratos-repasses-fundeb-ibotirama/",
+      "auto": true
+    },
+    {
+      "id": "tce-mt-tce-mt-suspende-contrato-de-r-2-9-milhoes-da-camara-d-2026-11-20",
+      "data": "2026-11-20",
+      "categoria": "Tribunal de Contas",
+      "orgao": "TCE-MT · Auditor substituto de conselheiro Luiz Henrique Lima",
+      "orgao_grupo": "TCE-MT",
+      "uf": "MT",
+      "titulo": "TCE-MT suspende contrato de R$ 2,9 milhões da Câmara de Rondonópolis",
+      "resumo": "O Tribunal de Contas de Mato Grosso suspendeu contrato de adesão a ata de registro de preços para móveis planejados na Câmara de Rondonópolis. A decisão aponta sobrepreço de cerca de 61% em relação a cotações anteriores, além de falhas no planejamento e divergência no objeto contratado.",
+      "fonte": "RepórterMT",
+      "url": "https://www.reportermt.com/politica/camara-de-rondonopolis-paga-61-a-mais-em-moveis-planejados-e-tce-mt-suspende-contrato-de-r-29-milhoes/246940",
+      "auto": true
+    },
+    {
+      "id": "mp-pb-mppb-emite-parecer-favoravel-a-anulacao-de-licitacao-d-2026-11-20",
+      "data": "2026-11-20",
+      "categoria": "Operações e investigações",
+      "orgao": "MP-PB · Promotoria de Justiça",
+      "orgao_grupo": "MP-PB",
+      "uf": "PB",
+      "titulo": "MPPB emite parecer favorável à anulação de licitação da Cagepa",
+      "resumo": "O Ministério Público da Paraíba emitiu parecer favorável pela anulação de licitação da Cagepa no valor de R$ 17,5 milhões para serviços de vigilância. A manifestação aponta falhas na composição dos custos trabalhistas da empresa vencedora, envolvendo cálculos de hora noturna, descanso semanal e aviso prévio. Segundo o órgão, as inconsistências comprometem a viabilidade econômica da proposta.",
+      "fonte": "Polêmica Paraíba",
+      "url": "https://www.polemicaparaiba.com.br/na-rota-da-justica/seguranca-mppb-pede-anulacao-de-licitacao-de-r-175-milhoes-vencida-pela-forca-alerta/",
+      "auto": true
+    },
+    {
+      "id": "tj-mg-justica-mantem-suspensao-de-licitacao-para-limpeza-urb-2026-11-20",
+      "data": "2026-11-20",
+      "categoria": "Justiça / Mandado de segurança",
+      "orgao": "TJ-MG · 4ª Vara Cível / Comarca de Patos de Minas",
+      "orgao_grupo": "TJ-MG",
+      "uf": "MG",
+      "titulo": "Justiça mantém suspensão de licitação para limpeza urbana e aterro sanitário no Alto Paranaíba",
+      "resumo": "A Justiça manteve a suspensão de licitação de concessão de limpeza urbana e aterro sanitário no Alto Paranaíba, em Minas Gerais. A contestação envolve regras sobre a reversibilidade da estrutura do aterro ao final do contrato de 30 anos. O Tribunal de Contas havia emitido parecer favorável à regularidade do edital, mas a Justiça atendeu a pedidos de suspensão apresentados por entidades do setor.",
+      "fonte": "ncnews.com.br",
+      "url": "https://ncnews.com.br/2026/11/20/justica-barra-licitacao-do-lixo-em-mg-apos-denuncia-de-que-aterro-milionario-ficaria-com-empresa/",
+      "auto": true
+    },
     {
       "id": "tcu-tribunal-de-contas-suspende-edital-de-publicidade-da-sec-2026-11-20",
       "data": "2026-11-20",
@@ -38,6 +90,45 @@
       "resumo": "Um novo decreto municipal transfere aos secretários e dirigentes de autarquias a competência para homologar licitações, anular procedimentos e autorizar contratações diretas. A medida descentraliza a palavra final antes concentrada na chefia do Executivo e permite novos repasses de atribuições a ordenadores de despesas. A administração municipal sustenta que a mudança visa à eficiência e à celeridade, enquanto críticos apontam riscos à fiscalização.",
       "fonte": "Top Mídia News",
       "url": "https://www.topmidianews.com.br/politica/adriane-tira-da-propria-mesa-decisoes-sobre-licitacoes-e-passa-poder-a/249252/",
+      "auto": true
+    },
+    {
+      "id": "df-caesb-suspende-licitacao-milionaria-para-revitalizacao-do-2026-11-19",
+      "data": "2026-11-19",
+      "categoria": "Normas e orientações",
+      "orgao": "Caesb · Companhia de Saneamento Ambiental do Distrito Federal",
+      "orgao_grupo": "DF",
+      "uf": "DF",
+      "titulo": "Caesb suspende licitação milionária para revitalização do Lago Paranoá",
+      "resumo": "A Companhia de Saneamento Ambiental do Distrito Federal suspendeu o processo licitatório estimado em trezentos e vinte e três milhões de reais. A contratação tinha como objetivo a recuperação ambiental do braço Sul do Lago Paranoá.",
+      "fonte": "soubrasilia.com",
+      "url": "https://soubrasilia.com/caesb-suspende-licitacao-323-milhoes-braco-sul-lago-paranoa-tcdf-18-novembro-2026/",
+      "auto": true
+    },
+    {
+      "id": "tce-am-julgamento-de-licitacao-bilionaria-da-seap-e-adiado-n-2026-11-19",
+      "data": "2026-11-19",
+      "categoria": "Tribunal de Contas",
+      "orgao": "TCE-AM · Plenário",
+      "orgao_grupo": "TCE-AM",
+      "uf": "AM",
+      "titulo": "Julgamento de licitação bilionária da Seap é adiado no TCE-AM após divergência",
+      "resumo": "O Tribunal de Contas do Estado do Amazonas iniciou o julgamento de uma licitação de R$ 3,92 bilhões da Secretaria de Estado de Administração Penitenciária, mas a análise foi interrompida por pedido de vista. O relator votou pela anulação do edital devido a restrições à competitividade, enquanto outro conselheiro apresentou voto divergente pela continuidade. O certame permanece suspenso cautelarmente.",
+      "fonte": "Amazonas1",
+      "url": "https://amazonas1.com.br/licitacao-de-r-392-bilhoes-da-seap-provoca-racha-no-tce-am/",
+      "auto": true
+    },
+    {
+      "id": "pf-investigacao-aponta-esquema-familiar-em-fraudes-de-licita-2026-11-19",
+      "data": "2026-11-19",
+      "categoria": "Operações e investigações",
+      "orgao": "PF · Goiás",
+      "orgao_grupo": "PF",
+      "uf": "GO",
+      "titulo": "Investigação aponta esquema familiar em fraudes de licitações de medicamentos em Goiás",
+      "resumo": "Uma investigação aponta que um esquema familiar teria sonegado R$ 132 milhões por meio de fraudes em licitações públicas para o fornecimento de medicamentos no estado de Goiás.",
+      "fonte": "G5News",
+      "url": "https://www.g5news.com.br/policia/esquema-familiar-sonegou-r-132-milhoes-com-fraudes-em-licitacoes-de-medicamentos-em-goias",
       "auto": true
     },
     {
@@ -944,90 +1035,6 @@
       "fonte": "O Melhor da Amazônia",
       "url": "https://www.omelhordaamazonia.com.br/destaque/licitacao-de-pneus-suspensa-tce-porto-nacional/",
       "orgao_grupo": "TCE-TO"
-    },
-    {
-      "id": "tcesp-cdhu-bairro-paulista-2026-11-06",
-      "data": "2026-11-06",
-      "categoria": "Tribunal de Contas",
-      "orgao": "TCE-SP · Conselheiro Renato Martins Costa",
-      "uf": "SP",
-      "titulo": "TCE-SP suspende licitação de R$ 305,6 milhões da CDHU para obras do Bairro Paulista",
-      "resumo": "Após representações de empresas, a decisão preliminar questiona o uso de registro de preços para obras de grande valor e as exigências de qualificação técnica. A CDHU diz que cumprirá a determinação e tem dez dias úteis para se manifestar.",
-      "fonte": "Marília Notícia",
-      "url": "https://marilianoticia.com.br/mariliaeregiao/tce-suspende-licitacao-de-r-305-milhoes-da-cdhu-com-obras-na-regiao-de-marilia/",
-      "orgao_grupo": "TCE-SP"
-    },
-    {
-      "id": "tcesp-marilia-plataforma-2026-11-06",
-      "data": "2026-11-06",
-      "categoria": "Tribunal de Contas",
-      "orgao": "TCE-SP · Conselheiro Dimas Ramalho",
-      "uf": "SP",
-      "titulo": "TCE-SP suspende pregão de R$ 1,9 milhão da Prefeitura de Marília",
-      "resumo": "O Pregão Eletrônico nº 112/2026 (plataforma de gestão de processos) foi paralisado por cautelar. Entre os pontos levantados estão a proibição de subcontratação, o preço global único e a dispensa do estudo técnico preliminar.",
-      "fonte": "Marília Notícia",
-      "url": "https://marilianoticia.com.br/mariliaeregiao/tce-questiona-edital-e-suspende-licitacao-de-r-18-milhao-em-marilia/",
-      "orgao_grupo": "TCE-SP"
-    },
-    {
-      "id": "justica-to-palmas-upas-2026-11-06",
-      "data": "2026-11-06",
-      "categoria": "Justiça / Mandado de segurança",
-      "orgao": "Justiça de Tocantins · ação do MPTO",
-      "uf": "TO",
-      "titulo": "Justiça suspende seleção para gestão das UPAs de Palmas após ação do MP",
-      "resumo": "Liminar paralisa o chamamento, cuja abertura de propostas estava marcada para 6 de novembro. O MPTO questiona a exigência de cobrir 100% da folha sem definir quantos servidores seriam cedidos. A prefeitura informou que vai recorrer.",
-      "fonte": "Jornal Primeira Página",
-      "url": "https://jornalprimeirapaginato.com/justica-suspende-nova-selecao-para-gestao-das-upas-de-palmas-apos-mp-apontar-irregularidades-no-edital/",
-      "orgao_grupo": "TJ-TO"
-    },
-    {
-      "id": "tcmba-boa-vista-tupim-2026-11-05",
-      "data": "2026-11-05",
-      "categoria": "Tribunal de Contas",
-      "orgao": "TCM-BA",
-      "uf": "BA",
-      "titulo": "TCM-BA trava homologação de pregão de R$ 8 milhões da saúde em Boa Vista do Tupim",
-      "resumo": "Cautelar parcial impede o Fundo Municipal de Saúde de adjudicar e homologar o Lote 1 do Pregão Eletrônico nº 012/2026 (gestão de serviços de saúde) até nova decisão. As demais alegações da denúncia serão analisadas no mérito.",
-      "fonte": "A Tarde",
-      "url": "https://atarde.com.br/politica/licitacao-de-r-8-milhoes-da-saude-e-suspensa-em-boa-vista-do-tupim-1408407",
-      "orgao_grupo": "TCM-BA"
-    },
-    {
-      "id": "pf-serrinha-livros-2026-11-04",
-      "data": "2026-11-04",
-      "categoria": "Operações e investigações",
-      "orgao": "PF · CGU",
-      "uf": "BA",
-      "titulo": "PF investiga suspeita de fraude na compra de livros didáticos em Serrinha (BA)",
-      "resumo": "A Operação Caro Leitor cumpriu 13 mandados de busca na Bahia e no Ceará. A investigação apura suspeita de direcionamento de licitação, preços acima dos divulgados pela editora e desvio de recursos do Fundeb. Os alvos são suspeitos e não há condenação.",
-      "fonte": "Farol da Bahia",
-      "url": "https://www.faroldabahia.com.br/noticia/pf-cumpre-mandados-em-operacao-que-investiga-licitacao-fraudada-e-desvio-de-dinheiro-em-compra-de-livros-na-bahia",
-      "orgao_grupo": "PF"
-    },
-    {
-      "id": "tcems-anaurilandia-revogacao-2026-11-04",
-      "data": "2026-11-04",
-      "categoria": "Tribunal de Contas",
-      "orgao": "TCE-MS · Processo TC/3144/2026",
-      "orgao_grupo": "TCE-MS",
-      "uf": "MS",
-      "titulo": "Anaurilândia revoga pregão de R$ 1 milhão suspenso pelo TCE-MS para refazer quantitativos e preços",
-      "resumo": "Depois da suspensão pelo TCE-MS, a prefeitura revogou o Pregão Eletrônico nº 12/2026, de registro de preços de materiais de construção, estimado em R$ 1,04 milhão. A justificativa publicada no DOU foi a necessidade de revisar integralmente os quantitativos e a estimativa de preços. O aviso não detalha o que o tribunal havia questionado.",
-      "fonte": "A Crítica de Campo Grande",
-      "url": "https://acritica.net/cidades/anaurilandia-revoga-pregao-1-milhao-suspenso-tce-ms/"
-    },
-    {
-      "id": "pf-serrinha-caro-leitor-2026-11-04",
-      "data": "2026-11-04",
-      "categoria": "Operações e investigações",
-      "orgao": "PF · Operação Caro Leitor (com CGU)",
-      "orgao_grupo": "PF",
-      "uf": "BA",
-      "titulo": "PF e CGU investigam compra de livros didáticos de quase R$ 6 milhões em Serrinha (BA)",
-      "resumo": "A Operação Caro Leitor cumpriu mandados de busca na Bahia e no Ceará. A investigação apura suspeita de direcionamento e de sobrepreço, com livros contratados por valores bem acima dos praticados pela editora, além de vínculos entre empresas participantes. Os pagamentos foram feitos com recursos do Fundeb.",
-      "fonte": "Momento MT (nota da Polícia Federal)",
-      "url": "https://momentomt.com.br/pf-e-cgu-atuam-contra-fraude-em-licitacao/"
     }
   ]
 }
